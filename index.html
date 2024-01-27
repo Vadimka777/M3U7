@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      background-color: yellow;
+    }
+    #img {
+      position: absolute;
+      width: 250px;
+      left: 10%;
+      top: 10%;
+      transition: all 0.3s;
+    }
+    #num {
+      font-size: 50px;
+      position: absolute;
+      right: 5%;
+      color: black;
+    }
+  </style>
+  <body>
+    <h1 id="num">0</h1>
+    <img
+      src="
+    https://www.wallpapertip.com/wmimgs/56-562036_huge-picture-with-transparent-background-if-you-want.png"
+      id="img"
+    />
+  </body>
+
+  <script>
+    let img = document.getElementById("img");
+    let num = document.getElementById("num");
+    function getRnd(min, max) {
+        return Math.floor(Math.random() *(max- min)) + min;
+
+    }
+    getRnd(0,100);
+    function click(){
+      score += 1
+      if (score > 3) {
+        img.style.display = "none"
+
+      }
+      num.innerHTML = score;
+    }
+
+    let score = 0
+    img.addEventListener("click", click)
+
+
+    function pos() {
+      let x = getRnd(0, 50)
+      let y = getRnd(0, 50)
+      img.style.left = x + "%"
+      img.style.top =  y + "%"
+    }
+
+    pos()
+
+    setInterval (pos, 1000);
+  </script>
+</html>
